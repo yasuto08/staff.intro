@@ -3,66 +3,154 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>もみ徳 スタッフ一覧</title>
+  <title>もみ徳 スタッフ紹介</title>
   <style>
     :root {
-      --bg-gradient-light: linear-gradient(to bottom right, #f0f2f5, #e6ecf3);
-      --bg-gradient-dark: linear-gradient(to bottom right, #1f1f1f, #3a3a3a);
-      --text-color-light: #333;
-      --text-color-dark: #f0f0f0;
-      --card-bg-light: #fff;
-      --card-bg-dark: #2b2b2b;
-      --card-border-light: #ddd;
-      --card-border-dark: #555;
+      --bg-light: #f3f5f8;
+      --bg-dark: #1e1e1e;
+      --text-light: #2c3e50;
+      --text-dark: #e0e0e0;
+      --card-light: #ffffff;
+      --card-dark: #2a2a2a;
+      --shadow: rgba(0, 0, 0, 0.1);
     }
 
-    body[data-theme='dark'] {
-      background: var(--bg-gradient-dark);
-      color: var(--text-color-dark);
-    }
     body[data-theme='light'] {
-      background: var(--bg-gradient-light);
-      color: var(--text-color-light);
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+    body[data-theme='dark'] {
+      background: var(--bg-dark);
+      color: var(--text-dark);
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      padding: 1.5em;
       margin: 0;
-      background: var(--bg-gradient-light);
-      color: var(--text-color-light);
-      transition: background 0.5s, color 0.5s;}
+      padding: 2em 1em;
+      font-family: "Helvetica Neue", sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 0.2em;
+    }
     .subheading {
       text-align: center;
       font-size: 1rem;
       margin-bottom: 2em;
     }
+
     .theme-toggle {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(2, 100px);
       justify-content: center;
-      margin-bottom: 1em;
+      gap: 1em;
+      margin-bottom: 2em;
     }
     .theme-toggle button {
-      padding: 0.5em 1em;
-      font-size: 0.9rem;
+      width: 100px;
+      height: 100px;
+      font-size: 0.85rem;
       border: none;
-      border-radius: 6px;
-      background-color: #444;
+      border-radius: 16px;
+      background: #555;
       color: #fff;
       cursor: pointer;
-      margin: 0 0.5em;
+      transition: background 0.3s;
     }
+    .theme-toggle button:hover {
+      background: #777;
+    }
+
     .staff-grid {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2em;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      justify-items: center;
+      gap: 1.5em;
     }
+
     .staff-card {
-      background: var(--card-bg-light);
-      border-radius: 20px;
-      padding: 2em 1.5em;
-      width: 100%;
-      max-width: 360px;
+      width: 140px;
+      height: 140px;
+      background: var(--card-light);
+      border-radius: 16px;
+      box-shadow: 0 4px 10px var(--shadow);
       text-align: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      padding: 1em;
+      transition: transform 0.2s;
+    }
+    body[data-theme='dark'] .staff-card {
+      background: var(--card-dark);
+    }
+    .staff-card:hover {
+      transform: translateY(-4px);
+    }
+    .staff-card img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.5em;
+    }
+    .staff-name {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    .staff-card a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .footer-msg {
+      text-align: center;
+      margin-top: 2em;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <h1>もみ徳 スタッフ紹介</h1>
+  <div class="theme-toggle">
+    <button onclick="setTheme('light')">ライトモード</button>
+    <button onclick="setTheme('dark')">ダークモード</button>
+  </div>
+  <p class="subheading">あなたにぴったりのスタッフを見つけてください。<br>迷ったときは、雰囲気や出勤店舗などを参考にどうぞ。</p>
+
+  <div class="staff-grid">
+    <div class="staff-card">
+      <a href="yui.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/yasuto08/staff.intro/main/%E3%82%86%E3%81%84.png" alt="ゆい">
+        <div class="staff-name">ゆい</div>
+      </a>
+    </div>
+    <div class="staff-card">
+      <a href="akane.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/yasuto08/staff.intro/main/%E3%81%82%E3%81%8B%E3%81%AD.png" alt="あかね">
+        <div class="staff-name">あかね</div>
+      </a>
+    </div>
+    <div class="staff-card">
+      <a href="taro.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/yasuto08/staff.intro/main/%E3%81%9F%E3%82%8D%E3%81%86.png" alt="たろう">
+        <div class="staff-name">たろう</div>
+      </a>
+    </div>
+    <div class="staff-card">
+      <a href="makoto.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/yasuto08/staff.intro/main/%E3%81%BE%E3%81%93%E3%81%A8.png" alt="まこと">
+        <div class="staff-name">まこと</div>
+      </a>
+    </div>
+  </div>
+
+  <p class="footer-msg">次回来店時の参考になるとうれしいです</p>
+
+  <script>
+    function setTheme(theme) {
+      document.body.setAttribute('data-theme', theme);
+    }
+  </script>
+</body>
+</html>
